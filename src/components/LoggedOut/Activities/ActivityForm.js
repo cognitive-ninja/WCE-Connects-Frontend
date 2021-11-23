@@ -157,7 +157,7 @@ export default function ActivityForm() {
 
     if (post === true) {
       post = false;
-      console.log(userData)
+      // console.log(userData)
       axios.post('http://localhost:5000/auth/register', userData)
       .then(res => { 
         // console.log(res.data.message);
@@ -166,8 +166,14 @@ export default function ActivityForm() {
           swal("Submitted Successfully");
         }
       }).catch(err => {
-          console.log(err.response);
-          swal("Error while submitting...\n"+err.response.data)
+          
+          if(err.response && err.response.data)
+          {
+            swal("Error while submitting...\n"+err.response.data)
+          }
+          else{
+            swal("Error while submitting...")
+          }
       });
     }
   }
