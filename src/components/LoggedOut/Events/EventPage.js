@@ -19,7 +19,7 @@ export default function EventPage() {
       return { sr, name, designation, department, mobile, email };
     }      
     const ecCommittee = [
-        createECData(1,"Dr. P. G. Sonavane","Deputy Director","9822534868","deputy.directorl@walchandsangli.ac.in"),
+        createECData(1,"Dr. P. G. Sonavane","Deputy Director","9822534868","deputy.director@walchandsangli.ac.in"),
         createECData(2,"Dr. D. B. Kulkarni","Chairman WIC","9422615058","dinesh.kulkarni@walchandsangli.ac.in"),
         createECData(3,"Mr. S. B. Dhaigude","TPO","9422615070","tpo@walchandsangli.ac.in"),
         createECData(4,"Dr. M. A. Shah","HOD CSE","9423872296","hod.cse@walchandsangli.ac.in"),
@@ -39,14 +39,14 @@ export default function EventPage() {
         createACData(9,"Dr. A. K. Kokane","Coordinator, Industry Institute Interaction","Civil","9822964111","iiic@walchandsangli.ac.in"),
         createACData(10,"Dr. Anil .A. Agashe", "Coordinator (Polytechnic Wing)","Industrial Electronics","9822026036","anil.agashe@walchandsangli.ac.in"),
         createACData(11,"Mr. A. V. Kamble","Vice-Principal (Polytechnic Wing)","Mechanical","9765165390","ashok.kamble@walchandsangli.ac.in"),
-        createACData(12,"Dr. P. K. Sohoni","PG Coordinator","","9717673322","prachi.sohoni@walchandsangli.ac.in"),
+        createACData(12,"Dr. P. K. Sohoni","PG Coordinator","Civil","9717673322","prachi.sohoni@walchandsangli.ac.in"),
     ];
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
    
       return (
-        <div>
+        <div style={{marginTop:'4rem'}}>
             <div style={{ backgroundColor: "black", color: "white" }}>
                 <img src={PF+"/event_banner.jpg"} alt="EVENT_BANNER" style={{ maxWidth: "-webkit-fill-available", maxHeight: "400px" }} />
             </div>
@@ -56,16 +56,18 @@ export default function EventPage() {
                     <p style={{ fontSize: "large", fontWeight: "bold", fontFamily: "Montserrat" }}>EVENT TIME: 10:00 AM</p>
                 </div>
                 <div style={{ marginTop:"2%", marginRight: "5%", textAlign: "right" }}>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        style={{ background: 'lightgrey' }}
-                    >
-                        <div style={{ color: "black" }}>
-                            <a href="https://services.sabpaisa.in/pages/walchandcollegeofengineeringsangli.html" target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}>REGISTER NOW</a>
-                        </div>
-                    </Button>
-                    <p style={{ color:"red", fontFamily: "Montserrat", fontStyle: "italic"}}>
+                    <a href="https://services.sabpaisa.in/pages/walchandcollegeofengineeringsangli.html" target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            style={{ background: 'lightgrey' }}
+                        >
+                            <div style={{ color: "blue", fontSize:"medium" }}>
+                                REGISTER NOW
+                            </div>
+                        </Button>
+                    </a>
+                    <p style={{ color:"white", fontFamily: "Montserrat", fontSize: "20px"}}>
                         Considering pandemic situation, prior registration is necessary.<br/> On the spot registration can not be permitted.
                     </p>
                 </div>
@@ -165,6 +167,23 @@ export default function EventPage() {
                     </TableBody>
                 </Table>
                 </TableContainer>
+            </div>
+            <div style={{ fontFamily: "Montserrat", paddingTop:"3%" }}>
+                <p style={{ fontSize: "xx-large", fontWeight: "bold", color: "#093f96" }}>Platinum Jubilee Meet (2021-22) Registration</p>                
+                <a href="https://services.sabpaisa.in/pages/walchandcollegeofengineeringsangli.html" target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        style={{ background: 'lightgrey' }}
+                    >
+                        <div style={{ color: "blue", fontSize:"medium" }}>
+                            REGISTER NOW
+                        </div>
+                    </Button>
+                </a>
+                <p style={{ color:"grey", fontFamily: "Montserrat", fontSize: "20px"}}>
+                        Considering pandemic situation, prior registration is necessary.<br/> On the spot registration can not be permitted.
+                </p>
             </div>
             <div style={{ fontFamily: "Montserrat",  }}>
                 <p style={{ fontSize: "x-large", fontWeight: "bold", paddingTop:"3%" }}>Nearby Hotels</p>

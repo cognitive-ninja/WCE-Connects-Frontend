@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,7 +7,8 @@ import Box from '@material-ui/core/Box';
 import { Button, Grid } from '@material-ui/core';
 // import { useHistory } from "react-router-dom";
 // import swal from 'sweetalert';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+// import {  } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,25 +19,41 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: '1.77rem',
     textAlign: 'left',
     fontFamily:'RocknRoll One',
   },
   navitem: {
     fontFamily:'RocknRoll One',
-  }
+    backgroundColor:'black',
+  },
+  active: {
+    fontFamily:'RocknRoll One',
+    backgroundColor: 'grey',
+    "&:hover": {
+      backgroundColor:"grey"
+    }
+  },
 }));
 
 export default function Navigation() {
   const classes = useStyles();
   // const history = useHistory();
+  const [activeNav, toggleActiveNav] = useState('/')
+  const location = useLocation();
+  useEffect(() => {
+    toggleActiveNav(location.pathname);
+  }, [location]);
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{backgroundColor:"black", color:"white"}}>
+      <AppBar position="fixed" style={{backgroundColor:"black", color:"white"}}>
         <Toolbar>
           <Box display="flex" width="100%">
-            <Typography variant="h5" className={classes.title}>
-              WCE Connects
-            </Typography>
+            <Link to="/" style={{textDecoration:"none", color: "white"}}>
+              <Typography variant="h1" className={classes.title}>
+                WCE Connects
+              </Typography>
+            </Link>
           </Box>
           <Grid
             container
@@ -46,29 +63,29 @@ export default function Navigation() {
             >
             <Grid item xs={2}>
               <Link to="/" style={{textDecoration:"none"}}>
-                <Button style={{backgroundColor:"black", color:"white"}}>
-                  <Typography variant="subtitle2" className={classes.navitem}>Home</Typography>
+                <Button className={activeNav==='/' ? classes.active : classes.navitem}>
+                  <Typography variant="subtitle2" style={{fontFamily:"RocknRoll One", color: "white"}}>Home</Typography>
                 </Button>
               </Link>
             </Grid>
             <Grid item xs={2}>
               <Link to="/gallery" style={{textDecoration:"none"}}>
-                <Button style={{backgroundColor:"black", color:"white"}}>
-                  <Typography variant="subtitle2" className={classes.navitem}>Gallery</Typography>
+                <Button  className={activeNav.startsWith('/gallery') ? classes.active : classes.navitem}>
+                  <Typography variant="subtitle2" style={{fontFamily:"RocknRoll One", color: "white"}}>Gallery</Typography>
                 </Button>
               </Link>
             </Grid>
             <Grid item xs={2}>
               <Link to="/events" style={{textDecoration:"none"}}>
-                <Button style={{backgroundColor:"black", color:"white"}}>
-                  <Typography variant="subtitle2" className={classes.navitem}>Events</Typography>
+                <Button  className={activeNav.startsWith('/events') ? classes.active : classes.navitem}>
+                  <Typography variant="subtitle2" style={{fontFamily:"RocknRoll One", color: "white"}}>Events</Typography>
                 </Button>
               </Link>
             </Grid>
             <Grid item xs={2}>
               <Link to="/activities" style={{textDecoration:"none"}}>
-                <Button style={{backgroundColor:"black", color:"white"}}>
-                  <Typography variant="subtitle2" className={classes.navitem}>Alumni Activities</Typography>
+                <Button  className={activeNav.startsWith('/activities') ? classes.active : classes.navitem}>
+                  <Typography variant="subtitle2" style={{fontFamily:"RocknRoll One", color: "white"}}>Alumni Activities</Typography>
                 </Button>
               </Link>
             </Grid>
